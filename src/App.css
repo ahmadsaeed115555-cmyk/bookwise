@@ -1,0 +1,208 @@
+/* ==========================================================================
+   BookWise – Global Book Explorer Custom Styles
+   ========================================================================== */
+
+:root {
+  --navy-dark: #0f172a;        /* Deep navy for sidebar */
+  --navy-darker: #090d16;      /* Darker navy for badges & borders */
+  --navy-accent: #1e293b;      /* Slate navy hover background */
+  --content-bg: #f8fafc;       /* Clean light-grey content area */
+  --brand-blue: #2563eb;       /* Primary accent blue */
+  --text-primary: #1e293b;     /* High contrast body text */
+  --text-muted: #64748b;       /* Secondary muted text */
+  --card-border: #e2e8f0;      /* Subtle border */
+}
+
+/* --------------------------------------------------------------------------
+   App Layout (Dashboard Structure)
+   -------------------------------------------------------------------------- */
+.app-dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--content-bg);
+  color: var(--text-primary);
+}
+
+.main-content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* Prevents overflow in flex child */
+  background-color: var(--content-bg);
+}
+
+.page-content {
+  flex: 1;
+  padding: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .page-content {
+    padding: 2rem 2.5rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Sidebar (Dark Navy)
+   -------------------------------------------------------------------------- */
+.sidebar-container {
+  width: 260px;
+  min-width: 260px;
+  background-color: var(--navy-dark);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 1030;
+  transition: transform 0.3s ease-in-out;
+}
+
+.brand-icon-box {
+  width: 36px;
+  height: 36px;
+}
+
+.sidebar-brand-subtitle {
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.sidebar-section-title {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+}
+
+.sidebar-link {
+  color: #94a3b8 !important;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.sidebar-link:hover {
+  background-color: var(--navy-accent);
+  color: #ffffff !important;
+}
+
+.active-nav-link {
+  background-color: var(--brand-blue) !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.academic-badge-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.extra-small {
+  font-size: 0.75rem;
+}
+
+/* Mobile Sidebar Behavior */
+@media (max-width: 767.98px) {
+  .sidebar-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .sidebar-container.show-mobile {
+    transform: translateX(0);
+  }
+
+  .sidebar-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(2px);
+    z-index: 1025;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Top Header & Search Bar
+   -------------------------------------------------------------------------- */
+.top-header {
+  z-index: 1020;
+}
+
+.search-form-wrapper {
+  max-width: 720px;
+}
+
+.search-form-wrapper .input-group {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.search-form-wrapper .form-control:focus {
+  background-color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   Book Cards & Grid
+   -------------------------------------------------------------------------- */
+.book-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid var(--card-border) !important;
+  background-color: #ffffff;
+}
+
+.book-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -6px rgba(15, 23, 42, 0.12) !important;
+}
+
+.book-cover-wrapper {
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #f1f5f9 0%, #e2e8f0 100%);
+  overflow: hidden;
+  padding: 0.75rem;
+}
+
+.book-cover-img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.book-card:hover .book-cover-img {
+  transform: scale(1.03);
+}
+
+/* --------------------------------------------------------------------------
+   Dashboard Hero & Filter Chips
+   -------------------------------------------------------------------------- */
+.dashboard-hero {
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+  color: #ffffff;
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
+}
+
+.filter-chip {
+  border-radius: 2rem;
+  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.15s ease;
+}
